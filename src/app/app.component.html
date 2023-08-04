@@ -1,0 +1,43 @@
+<!-- <h1>Angular App</h1>
+<p> This is angular App</p> -->
+
+<div>
+  <header>
+    <div *ngIf="!isLoggedIn"><a routerLink="loginpage" (click)="onLoginClick()"> LogIn</a>
+    <!-- <app-loginpage></app-loginpage> -->
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- <div class="container-fluid">
+  <header>
+      <div>
+          <span class="brand bi bi-cart4">Shopstore</span>
+      </div>
+      <div class="navmenu">
+          
+          <a routerLink="naadmin" >Admin</a>
+          <a routerLink="nauser" >User</a>
+          <a routerLink="homepage" >Home</a>
+          <a routerLink="catalog">Catalog</a>
+          <a routerLink="shop" >Shop</a>
+          <a routerLink="kids" >Electronic</a>
+          <a routerLink="mens" >Mens</a>
+          <a routerLink="women">Women</a>
+
+      </div>
+      <div class="navicon">
+          <a routerLink="search"><span class="bi bi-search"></span></a>
+          <a routerLink="admin"><span class="bi bi-heart"></span></a>
+          
+         <a routerLink="loginpage" > <span class="bi bi-person"></span></a>
+         <a routerLink="cart"> <span class="bi bi-cart"></span></a>
+      </div>
+  </header>
+  <div>
+      <router-outlet></router-outlet>
+  </div>
+</div> -->
+
+

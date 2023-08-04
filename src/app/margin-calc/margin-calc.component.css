@@ -1,0 +1,32 @@
+.right-tag{
+    position: absolute;
+    font-size: 14px;
+    color: gray;
+    right: 0;
+    top: 15px;
+    padding-right: 5px;
+}
+.job_title_sel{
+    /* position: absolute; */
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    padding-left: unset;
+    padding-right: unset;
+    height: 40px;
+}
+.sp_new_form input, textarea .border_input {
+    color: var(--gray-3) !important;
+    font-family: "PP Telegraf Medium" !important;
+    font-size: 14px !important;
+    padding: 7px 10px !important;
+    display: block;
+    box-sizing: border-box !important;
+
+}
+.sp_new_form form .border_input {
+    border: 1px solid #d4d6d7 !important;
+    border-radius: 4px !important;
+    width: 100%;
+    outline: none;
+}

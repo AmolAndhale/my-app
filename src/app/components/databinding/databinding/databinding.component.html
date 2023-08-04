@@ -1,0 +1,21 @@
+<div class="container-fluid mt-2">
+    <table border="1" [width]="tableWidth" [attr.height]="tableHeight">
+        <tr>Welcome</tr>
+    </table>
+    <h2>Product Details</h2>
+    <dl>
+
+        <dt>Title</dt>
+        <dd>{{ product.title }}</dd>
+        <dt>Price</dt>
+        <dd>{{product.price}}</dd>
+        <dt>Preview</dt>
+        <dd>
+            <img src="{{product.image}}" width="100" height="100">
+        </dd>
+        <dt>Rating</dt>
+        <dd><span class="bi bi-star-fill text-success"></span> {{product.rating.rate}} [{{product.rating.count}}]</dd>
+    </dl>
+        <dt>Stock</dt>
+        <dd><input type="checkbox" [checked]="Stock"></dd>
+</div>

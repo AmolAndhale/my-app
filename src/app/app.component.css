@@ -1,0 +1,32 @@
+/* header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-top:10px ;
+
+
+}
+.brand{
+    font-size: 50px;
+    font-weight: bold; 
+}
+.navmenu a{
+    margin-right: 30px;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    
+}
+.navicon span{
+    color: white;
+    font-size: 25px;
+    margin-right: 20px;
+}
+.navmenu{
+    margin-top: 20px;
+}
+.navicon{
+    margin-top: 20px;
+} */

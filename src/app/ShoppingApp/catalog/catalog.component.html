@@ -1,0 +1,70 @@
+<p>catalog works!</p>
+<!-- <div class="container-fluid">
+    <h2>Categories</h2>
+    <ol>
+        <li *ngFor="let item of Categories">
+            {{item}}
+
+        </li>
+    </ol>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Preview</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of Products">
+                <td>{{item.title}}</td>
+                <td><img [src]="item.image" height="100px" width="100px"></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div> -->
+<div >
+    <p-carousel [value]="Products" [numVisible]="1" [numScroll]="1"  >
+        
+            <ng-template let-Products pTemplate="item" >
+                <div class="Productc" >
+                            <h6 class="p-mb-1 ">{{Products.title}}</h6>
+                            <p> <img [src]="Products.image" height="100" width="100"></p>
+                            <h6 class="p-mt-0 p-mb-3">${{Products.price}}</h6>
+                            <p class="bi bi-star-fill text-success"><span>{{ Products.rating.rate}} [{{Products.rating.count}}]</span></p>
+                            
+                    </div>
+            </ng-template>
+
+        <!-- <ng-template let-Products pTemplate="item">    
+            Content to display <img src="assets/slide5.png " height="400px" width="100%">
+            Content to display <img src="assets/slide6.png " height="400px" width="100%">
+        </ng-template> -->
+    </p-carousel>
+</div>
+
+<div>
+    <p-dropdown [options]="Products" [filter]="true" [(ngModel)]="selectCategory" optionLabel="title" optionValue="price"  placeholder="Sectct Product" ></p-dropdown>
+    <p> Price :- {{selectCategory}}</p>
+
+<p-table [value]="Products" [tableStyle]="{'min-width': '80rem'}" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+   
+    <ng-template pTemplate="header" class="theader">
+        <tr >
+            <th class="col-5">Title</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-Products>
+        <tr>
+            <td>{{Products.title}}</td>
+            <td><img [src]="Products.image" height="100px" width="100px" ></td>
+            <td>{{Products.price}}</td>
+            <td><p-rating [ngModel]="Products.rating.rate" [readonly]="true" [cancel]="false"></p-rating></td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+ 

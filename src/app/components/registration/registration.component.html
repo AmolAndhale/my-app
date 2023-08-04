@@ -1,0 +1,36 @@
+<div class="container"> 
+    <div  class=" mt-5 " > 
+       <form [ngClass]="{'invalid-style':frmRegister.invalid , 'valid-style':frmRegister.valid}" #frmRegister="ngForm" class=" p-3" > 
+                <h2 class="bi bi-person-fill">Register User</h2> 
+                <dl> 
+                    <dt>Your Name</dt> 
+                    <dd><input required  name="YourName" ngModel #YourName="ngModel" type="text" class="form-control"></dd> 
+                    <dd class="text-danger" *ngIf="YourName.touched && YourName.invalid"> 
+                        <span *ngIf="YourName.errors?.['required']" >Name Required</span>
+                    </dd>
+                    <dt>User Name</dt> 
+                    <dd><input required minlength="4" name="UserName" ngModel #UserName="ngModel" type="text" class="form-control"></dd>
+                    <dd class="text-danger" *ngIf="UserName.touched && UserName.invalid"> 
+                        <span *ngIf="UserName.errors?.['required']" >UserName Required</span>
+                        <span *ngIf="UserName.errors?.['minlength']"> Minimum length 4 character</span>
+                    </dd>
+                    <dt>Mobile</dt> 
+                    <dd><input required pattern="\+91\d{10}" type="text" name="Mobile" ngModel #Mobile="ngModel" class="form-control"></dd> 
+                    <dd class="text-danger" *ngIf="Mobile.touched && Mobile.invalid"> 
+                        <span *ngIf="Mobile.errors?.['required']" >Mobile Number Required</span>
+                        <span *ngIf="Mobile.errors?.['pattern']"> Mobile Number With +91 Country Code</span>
+                    </dd>
+                    <dt>Password</dt> 
+                    <dd><input type="text" required pattern="(?=.*[A-Z])\w{4,10}" name="Password" ngModel #Password="ngModel" class="form-control"></dd>
+                    <dd class="text-danger" *ngIf="Password.touched && Password.invalid"> 
+                        <span *ngIf="Password.errors?.['required']" >Password Required</span>
+                        <span *ngIf="Password.errors?.['pattern']"> Password minimum 4 and maximum 5 with atleast 1 capital letter</span>
+                    </dd>
+                    
+                </dl> 
+                    <button [disabled]="frmRegister.invalid" type="submit" class="btn btn-primary">Register</button> 
+                    <button *ngIf="frmRegister.dirty" class="btn btn-primary">Save</button> 
+                    <div><p>Already have an account?<button class="btn btn-link">Sign in</button> </p></div>
+        </form> 
+    </div> 
+</div> 

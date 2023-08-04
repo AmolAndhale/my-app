@@ -1,0 +1,102 @@
+<p>form-primeng works!</p>
+
+<section class="row">
+  <main class="col-6">
+    <div class="form-style">
+      <label>First Name</label><br />
+      <input class="w-50" [(ngModel)]="fname" type="text" pInputText /> <br />
+
+      <label class="mt-3">Last Name</label><br />
+      <input class="w-50" [(ngModel)]="lname" type="text" pInputText /> <br />
+
+      <div class="p-field p-col-12 mt-3">
+        <label>Age</label><br />
+        <p-inputNumber
+          [(ngModel)]="age"
+          [showButtons]="true"
+          [min]="0"
+          [max]="100"
+        ></p-inputNumber>
+      </div>
+      <div class="p-field p-col-12 mt-3">
+        <label>Date Of Birth</label><br />
+        <p-calendar
+          [(ngModel)]="dob"
+          dateFormat="dd/mm/yy"
+          [showIcon]="true"
+          pattern="dd/mm/yy"
+        ></p-calendar>
+      </div>
+      <div class="p-field p-col-12 mt-3">
+        <label>Mobile Number</label><br />
+        <p-inputNumber mode="decimal" [(ngModel)]="phone" [useGrouping]="false">
+        </p-inputNumber>
+      </div>
+      <div>
+        <div class="mt-3">
+          <label>Gender</label>
+        </div>
+        <div class="btn btn-group">
+          <div class="p-field-radiobutton">
+            <label for="city1" id="Male"
+              ><p-radioButton
+                name="male"
+                value="Male"
+                inputId="Male"
+                [(ngModel)]="gender"
+              ></p-radioButton
+              >Male</label
+            >
+          </div>
+          <div class="p-field-radiobutton">
+            <label for="city2"
+              ><p-radioButton
+                name="female"
+                value="Female"
+                inputId="female"
+                [(ngModel)]="gender"
+              ></p-radioButton
+              >Female</label
+            >
+          </div>
+          <div class="p-field-radiobutton">
+            <label for="city3"
+              ><p-radioButton
+                name="other"
+                value="Other"
+                inputId="other"
+                [(ngModel)]="gender"
+              ></p-radioButton
+              >Other</label
+            >
+          </div>
+        </div>
+      </div>
+      <div>
+        <label class="mt-3">Email Id</label><br />
+        <input [(ngModel)]="email" class="w-50" type="email" pInputText />
+        <br />
+      </div>
+      <div>
+        <label class="mt-3">Address</label><br />
+        <textarea [(ngModel)]="address" pInputTextarea class="w-50"></textarea>
+      </div>
+      <div class="mt-4">
+        <p-button label="Submit" (onClick)="onSubmit()"></p-button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="col-6">
+    <div>
+      <p>First Name: {{ fname }}</p>
+      <p>Last Name: {{ lname }}</p>
+      <p>Age: {{ age }}</p>
+      <p>Date Of Birth: {{ dob }}</p>
+      <p>Mobile Number: {{ phone }}</p>
+      <p>Gender: {{ gender }}</p>
+      <p>Email Id: {{ email }}</p>
+      <p>Address: {{ address }}</p>
+    </div>
+  </aside>
+</section>

@@ -1,0 +1,28 @@
+<!-- <p>favorite-list works!</p>
+<h2>Favorite Products</h2> -->
+
+<div class="d-flex flex-wrap overflow-auto" style="height:600px">
+  <div *ngFor="let item of favoriteProducts$ | async" class="card p-2 m-2" style="width:200px">
+      <img [src]="item.image" height="160" class="card-img-top">
+      <div class="card-header" style="height:160px">
+          <p>{{item.title}}</p>
+      </div>
+      <div class="card-body">
+          <dl>
+              <dt>Price</dt>
+              <dd>{{ item.price}}</dd>
+              <dt>Rating</dt>
+              <dd class="bi bi-star-fill text-success"><span>{{ item.rating.rate}} [{{item.rating.count}}]</span></dd>
+          </dl>
+      </div>
+  </div>
+</div>
+
+
+<!-- <ul>
+  <li *ngFor="let product of favoriteProducts$ | async">
+    <img [src]="product.image" [alt]="product.name" width="100" height="100">
+    <span>{{ product.name }}</span>
+    <span>{{ product.number }}</span>
+  </li>
+</ul> -->

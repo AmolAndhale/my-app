@@ -1,0 +1,15 @@
+.invalid-style{
+    background-color: rgb(213, 147, 147);
+}
+.valid-style{
+    background-color: rgb(152, 215, 152);
+}
+.container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    margin-top: 100px;
+    
+}

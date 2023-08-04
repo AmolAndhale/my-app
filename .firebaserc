@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shopping-angularapp": {
+      "hosting": {
+        "my-app": [
+          "shopping-angularapp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shopping-angularapp"
+  }
+}

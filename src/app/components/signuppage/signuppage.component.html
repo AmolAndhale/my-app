@@ -1,0 +1,18 @@
+<div class="container">
+    <form #createAcc="ngForm" class="rounded rounded-3" >
+        <h2>Create Account</h2>
+        <dl>
+            <dt>Your Name</dt>
+            <dd><input class="form-control" ngModel #name="ngModel" yourname="name" required type="text" placeholder="First and Last Name"></dd>
+            <dt>Mobile number</dt>
+            <dd><input class="form-control" ngModel #mobile="ngModel" mobilenumber="mobile" required placeholder="Mobile Number" type="tel" pattern="\+91\d{10}" ></dd>
+            <dt>User Name</dt>
+            <dd><input class="form-control" ngModel #uname="ngModel" username="uname" required type="text"></dd>
+            <dt>Password</dt>  
+            <dd><input class="form-control" ngModel #password="ngModel" upassword="password" required type="password" placeholder="At least 6 characters"></dd>
+        </dl>
+        <button class="btn btn-primary w-100" [disabled]="createAcc.invalid">Continue</button>
+        <div><p>Already have an account?<button class="btn btn-link">Sign in</button> </p></div>
+    </form>
+   
+</div>

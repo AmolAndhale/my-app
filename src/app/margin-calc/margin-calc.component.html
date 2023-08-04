@@ -1,0 +1,183 @@
+<p>margin-calc works!</p>
+<div class="no-gutters reqList col-5">
+    <div class="dash_contentab position-relative">
+      <div class="flex-row tab_actions1">
+        <ul class="nav nav-tabs">
+           <li><a class="nav nav-link tab" [class.active]="tabNumber == 4" (click)="onChangeTab(4)"> Margin Calculator</a></li> 
+        </ul>
+      </div>
+      <div>
+        <div class="form-groupCal backWhite sp_new_form" *ngIf="tabNumber == 4" >   
+
+          <form style="overflow-x: hidden;">
+            <div class="row align-items-center mt-1" >
+              <div class="col-sm-12" >
+                <label for="entercomments" style=" color: var( --primary-color);
+                font-family: var( --font-medium) !important;
+                font-size: var( --font13) !important; ">Margin Calculator</label>
+              </div>
+            </div>
+  
+            <div class="row align-items-center mt-1" >
+            <div class="col-sm-6">
+              <label name="mcContractType" id="mcContractType" for="entercomments">Type Of Contract <small>*</small></label>
+            </div>
+              <div class="col-sm-6">
+                <div class="input-group input-group-sm job_title_sel">
+                  <select  name="ContractTypeMC" id="ContractTypeMC" required  placeholder="Select Contract Type" [(ngModel)]="selectedContractType" (ngModelChange)="onChangeContractType($event)" class="form-control"> 
+                    <!-- <ng-container *ngIf="!selectedContractType" > 
+                      <option value="" disabled>Select Contract Type</option>
+                    </ng-container> -->
+                    <option value="deelBiweekly">Deel Regular BiWeekly</option>
+                    <option value="deelMonthly">Deel Regular Monthly</option>
+                    <option value="deelShield">Deel Shield</option>
+                    <option value="deelEOR">Deel EOR</option>
+                  </select>
+  
+                  <!-- <ng-select [items]="ContractTypes" [(ngModel)]="selectedContractType" [clearSearchOnAdd]="false" [closeOnSelect]="true" [virtualScroll]="true" bindLabel="name" bindValue="id" class="ng__select" style="width: 100%" (keyup)="scrollTop()" [multiple]="false" id="ContractTypeMC" name="ContractTypeMC" placeholder="Select Contract Type" (ngModelChange)="onChangeContractType($event)">
+                  </ng-select> -->
+                  
+                </div>
+              </div>  
+            </div>
+            <div class="row align-items-center mt-1">
+              <div class="col-sm-6">
+                <label name="mcDealLabel" id="mcDealLabel" for="entercomments"> {{DealLabel}}<small>*</small></label>
+              </div>
+                <div class="col-sm-6">
+                  <div class="input-group input-group-sm">
+                    <input type="text" id="DeelHRPR" name="DeelHRPR" (input)="onInputChangeNo($event)" name="ActualPay"  class="border_input mb-0" (input)="onInputChangeNo($event)" [pattern]="useDecimal ? '^\d{1,3}(\.\d{1,2})?$': '^\d{1,6}(\.\d{1,2})?$' " required aria-describedby="basic-addon1"><!-- (keyup)="funCalculationVal()" (keydown)="funCalculationVal()"   [(ngModel)]="ActualPayRateHour"  -->
+                    <span class="right-tag right-new-tag" id="basic-addon1">USD($)</span>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-1">
+                <div class="col-sm-6">
+                  <label  for="entercomments"> Contract Length<small>*</small></label> 
+                </div>
+                  <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                      <input   id="ContractTypePR" name="ContractTypePR" pattern="[0-9]" type="text" class="border_input mb-0" ><!-- #ContractTypePR="ngModel"  (input)="onInputChangeNo($event, 'ContractLength')" [maxLength]="2" [(ngModel)]="ContractLength" (keyup)="funCalculationVal()" (keydown)="funCalculationVal()" -->
+                      <span class="right-tag right-new-tag" id="basic-addon1">Months</span>
+                    </div>
+                  </div>
+              </div>
+  
+            <div class="row align-items-center mt-1">
+              <div class="col-sm-6">
+                <label for="entercomments">Total Paid Time Offs <small>*</small></label>
+              </div>
+              <div class="col-sm-6">
+                <div class="input-group input-group-sm">
+                  <input maxlength="2"  type="text" class="border_input mb-0"><!--(input)="onInputChange($event, 'TotalPaidTimeOffs')" id="totalPayOfssd" (keyup)="funCalculationVal()" (keydown)="funCalculationVal()" name="totalPayOfssd" [(ngModel)]="TotalPaidTimeOffs" -->
+                  <span class="right-tag right-new-tag" id="basic-addon2">Days</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row align-items-center mt-1">
+              <div class="col-sm-6">
+                <label for="entercomments">Actual Bill Rate <small>*</small></label>
+              </div>
+                <div class="col-sm-6">
+                  <div class="input-group input-group-sm">
+                    <input maxlength="3"  type="text" class="border_input mb-0"><!-- (input)="onInputChange($event, 'Margin')" id="MarginPR" name="MarginPR" (keyup)="funCalculationVal()" (keydown)="funCalculationVal()"  [(ngModel)]="Margin"-->
+                    <span class="right-tag right-new-tag" id="basic-addon3">USD($)</span>
+                  </div>
+                </div>
+            </div>
+  
+            <div class="row align-items-center mt-1">
+              <div class="col-sm-12 mt-2 mb-2">
+                 <button class="btn_fill ms-2" style="float:right;" type="button" id="searchSubBtn" >Calculate Margin</button><!-- [disabled]="searchBtnDisabled() || CalculateFlagPR" (click)="CalculateBillRate('PR')"-->
+                 <button class="btn_outline ms-2" style="float:right;" type="button"   >Reset</button><!--[disabled]="resetBtnDisabled()"  -->
+              </div>
+            </div>
+  
+            <div class="row align-items-centers" style="height: 22px; margin-top: -11px">
+                <div class="col-sm-12">
+                    <hr style="color: #939191;">
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-1" >
+                <div class="col-sm-6">
+                    <label for="entercomments" class="blackText">Fixed Load</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                        <input id="fixLoadPR" name="fixLoadPR" disabled maxlength="255"  type="text" class="border_input mb-0">
+                        <span class="right-tag right-new-tag" id="basic-addon3"> USD($)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center mt-1" >
+                <div class="col-sm-6">
+                    <label for="entercomments" class="blackText">Payrolling Load</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                        <input id="PayrollingLoadPR" name="PayrollingLoadPR" disabled maxlength="255"  type="text" class="border_input mb-0"> <!-- [{ngModel}]="payrollingLoad"-->
+                        <span class="right-tag right-new-tag" id="basic-addon3"> USD($)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center mt-1" >
+                <div class="col-sm-6">
+                    <label for="entercomments" class="blackText">Leave Load</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                        <input id="LeaveLoadPR" name="LeaveLoadPR" disabled maxlength="255"  type="text" class="border_input mb-0">  <!-- [{ngModel}]="LeaveLoad"-->
+                        <span class="right-tag right-new-tag" id="basic-addon3"> USD($)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center mt-1" >
+                <div class="col-sm-6">
+                    <label for="entercomments" class="blackText">Total PR Including Load</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                        <input id="TotalPRIncludingLoadPR" name="TotalPRIncludingLoadPR" disabled maxlength="255"  type="text" class="border_input mb-0"> <!-- [{ngModel}]="TotalPRIncludingLoad"-->
+                        <span class="right-tag right-new-tag" id="basic-addon3"> USD($)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center mt-1" >
+                <div class="col-sm-6">
+                    <label for="entercomments" class="blackText">Deposits</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                        <input id="DepositsPR" name="DepositsPR" disabled maxlength="255"  type="text" class="border_input mb-0"> <!-- [{ngModel}]="Deposits"-->
+                        <span class="right-tag right-new-tag" id="basic-addon3"> USD($)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-centers" style="height: 22px; margin-top: -11px">
+                <div class="col-sm-12">
+                    <hr style="color: #939191;">
+                </div>
+            </div>
+            <div class="row align-items-center mt-1" >
+                <div class="col-sm-6">
+                    <label for="entercomments" class="boldText">Margin</label>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group input-group-sm">
+                        <input id="MarginPR" name="MarginPR" disabled maxlength="255"  type="text" class="border_input mb-0"> <!-- [{ngModel}]="Margin"-->
+                        <span class="right-tag right-new-tag" id="basic-addon3"> %</span>
+                    </div>
+                </div>
+            </div>
+
+          </form>
+  
+        </div>
+      </div>
+    </div>
+  
+  </div>

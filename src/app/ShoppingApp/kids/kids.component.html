@@ -1,0 +1,21 @@
+<div class="d-flex flex-wrap">
+    <header class="bg-danger text-white text-center mt-2 p-1">
+        <img src="assets/slide10.png" height="250px" width="100%">
+    </header>
+    <div *ngFor="let item of Products" class="card p-2 m-2" style="width: 200px;">
+        <img  [src]="item.image" class="card-img-top" height="140">
+        <div class="card-header" style="height:160px;">
+            <p>{{item.title}}</p>
+
+        </div>
+        <div class="card-footer">
+            <button  class="btn btn-primary w-100">
+               <span class="bi bi-cart4"></span>Add To Cart
+            </button>
+        </div>
+    </div>
+
+</div>
+  
+  
+  

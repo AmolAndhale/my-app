@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <h2 class="bi bi-person-fill">User Login</h2>
+    <form #frmLogin="ngForm" (submit)=" LoginClick(frmLogin.value)" *ngIf="isLoginPageVisible">
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" name="UserName" ngModel #UserName="ngModel"></dd>
+            <dt>Password</dt>
+            <dd><input type="Password" name="Password" ngModel #Password="ngModel"></dd>
+        </dl>
+        <button class="btn btn-dark">Login</button>
+        <div class="newuser"><p>New Customer ?<button class="btn btn-link" routerLink="/newuser">Start here</button> </p></div>
+    </form>
+</div>
+
